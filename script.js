@@ -1,7 +1,6 @@
 document.getElementById('garageForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Sizin verdiğiniz Discord Webhook URL'si eklendi
     const webhookURL = "https://discord.com/api/webhooks/1560806099118981240/xgnxVZc0KYQfetWAMhy9q7IlbEiqsD2D3y4Bs16Nx-_-DnuV-DuKOcvMakpBB8UYEKFl"; 
 
     const icName = document.getElementById('icName').value;
@@ -15,7 +14,6 @@ document.getElementById('garageForm').addEventListener('submit', function(e) {
     statusMsg.style.color = "yellow";
     statusMsg.innerText = "Gönderiliyor...";
 
-    // Discord Embed Mesaj Formatı
     const discordPayload = {
         username: "Dead Man's Wrench Bot",
         embeds: [{
@@ -25,7 +23,7 @@ document.getElementById('garageForm').addEventListener('submit', function(e) {
                 { name: "👤 Müşteri (IC Adı)", value: icName || "Belirtilmedi", inline: true },
                 { name: "📞 Telefon", value: phone || "Belirtilmedi", inline: true },
                 { name: "🏍️ Motosiklet Model", value: bikeModel || "Belirtilmedi", inline: false },
-                { name: "🔧 Hizmet Türü", value: serviceType || "Belirtilmedi", inline: false },
+                { name: "🔧 Hizmet Türü / Ürün", value: serviceType || "Belirtilmedi", inline: false },
                 { name: "📝 Detaylar", value: details || "Detay belirtilmedi." }
             ],
             footer: { text: "Dead Man's Wrench Custom Bike Garage" },
@@ -56,7 +54,7 @@ document.getElementById('garageForm').addEventListener('submit', function(e) {
         statusMsg.innerText = "Bağlantı hatası oluştu!";
     });
 });
-// Mağazada "Sipariş Ver" butonuna basıldığında formu seçili hale getiren fonksiyon
+
 function selectProduct(productName) {
     const selectBox = document.getElementById('serviceType');
     for (let i = 0; i < selectBox.options.length; i++) {
