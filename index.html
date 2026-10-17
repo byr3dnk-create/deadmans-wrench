@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead Man's Wrench Custom Bike Garage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVİGASYON -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Dead Man's Wrench Logo" class="logo-img">
+            <span class="brand-title">DEAD MAN'S WRENCH</span>
+        </div>
+        <nav>
+            <a href="#about">Hakkımızda</a>
+            <a href="#services">Hizmetler</a>
+            <a href="#booking" class="btn-nav">Randevu Al</a>
+        </nav>
+    </header>
+
+    <!-- HERO BÖLÜMÜ -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <img src="logo.png" alt="Dead Man's Wrench Main Logo" class="hero-logo">
+            <h1>DEAD MAN'S WRENCH</h1>
+            <h2>CUSTOM BIKE GARAGE & REPAIR</h2>
+            <p>San Andreas'ın en sert makinelerine özel bakım, custom modifiye ve performans ayarları.</p>
+            <a href="#booking" class="btn-primary">SERVİS KAYDI OLUŞTUR</a>
+        </div>
+    </section>
+
+    <!-- HİZMETLER -->
+    <section id="services" class="services-section">
+        <h2 class="section-title">HİZMETLERİMİZ</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🧰 GENEL BAKIM & TAMİR</h3>
+                <p>Motor revizyonu, fren sistemleri, zincir/kayış değişimi ve periyodik yağ bakımları.</p>
+            </div>
+            <div class="service-card">
+                <h3>🔥 CUSTOM & CHOPPER DİZAYN</h3>
+                <p>Özel gidon, egzoz sistemleri, depo şekillendirme ve kişiye özel tasarım şasiler.</p>
+            </div>
+            <div class="service-card">
+                <h3>🎨 PERFORMANS & BOYA</h3>
+                <p>Karbüratör/ECU yazılım ayarları, özel airbrush boya ve vintage/patina eskitme kaplamaları.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RANDEVU VE İLETİŞİM FORMU -->
+    <section id="booking" class="booking-section">
+        <div class="form-container">
+            <h2>GARAN GARAN MOTORUNU GETİR</h2>
+            <p>Aşağıdaki formu doldurarak atölyemizden randevu talebinde bulunabilirsin.</p>
+            
+            <form id="garageForm">
+                <div class="form-group">
+                    <label for="icName">Karakter Adı Soyadı (IC):</label>
+                    <input type="text" id="icName" required placeholder="Örn: Johnny Klebitz">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefon Numarası (IC):</label>
+                    <input type="text" id="phone" required placeholder="Örn: 555-0192">
+                </div>
+
+                <div class="form-group">
+                    <label for="bikeModel">Motosiklet Marka / Model:</label>
+                    <input type="text" id="bikeModel" required placeholder="Örn: Western Daemon / Chopper">
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceType">İstenen İşlem Tip:</label>
+                    <select id="serviceType" required>
+                        <option value="Periyodik Bakım / Arıza">Periyodik Bakım / Arıza</option>
+                        <option value="Custom Proje / Görsel Modifiye">Custom Proje / Görsel Modifiye</option>
+                        <option value="Performans & Egzoz">Performans & Egzoz</option>
+                        <option value="Komple Revizyon">Komple Revizyon</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="details">Yapılacak İşlem Detayları & Notlar:</label>
+                    <textarea id="details" rows="4" placeholder="Motorunuzdaki sorun veya istediğiniz custom detayları yazın..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">TALEBİ GÖNDER</button>
+                <div id="statusMessage" class="status-msg"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Dead Man's Wrench Custom Bike Garage — GTA World Roleplay</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

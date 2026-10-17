@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111111;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, .brand-title {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1.5px;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #0a0a0a;
+    border-bottom: 2px solid #8b0000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.brand-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #d1b88a;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #8b0000;
+}
+
+.btn-nav {
+    background: #8b0000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #fff !important;
+}
+
+.btn-nav:hover {
+    background: #a10000;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 80vh;
+    background: url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-logo {
+    width: 220px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    color: #d1b88a;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    color: #8b0000;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #bbb;
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #8b0000;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #b30000;
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+}
+
+/* SERVICES */
+.services-section {
+    padding: 60px 20px;
+    background-color: #161616;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: #d1b88a;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #8b0000;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: #222;
+    padding: 30px;
+    border-radius: 8px;
+    width: 320px;
+    border-top: 4px solid #8b0000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.service-card h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* FORM SECTION */
+.booking-section {
+    padding: 60px 20px;
+    background-color: #0d0d0d;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #181818;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.form-container h2 {
+    color: #d1b88a;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    text-align: center;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ddd;
+    font-weight: bold;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #262626;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #8b0000;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: #8b0000;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #a10000;
+}
+
+.status-msg {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #050505;
+    color: #666;
+    border-top: 1px solid #222;
+}
