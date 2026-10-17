@@ -56,3 +56,13 @@ document.getElementById('garageForm').addEventListener('submit', function(e) {
         statusMsg.innerText = "Bağlantı hatası oluştu!";
     });
 });
+// Mağazada "Sipariş Ver" butonuna basıldığında formu seçili hale getiren fonksiyon
+function selectProduct(productName) {
+    const selectBox = document.getElementById('serviceType');
+    for (let i = 0; i < selectBox.options.length; i++) {
+        if (selectBox.options[i].text.includes(productName) || selectBox.options[i].value.includes(productName)) {
+            selectBox.selectedIndex = i;
+            break;
+        }
+    }
+}
