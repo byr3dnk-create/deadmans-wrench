@@ -1,24 +1,138 @@
-<!-- MAĞAZA / ÜRÜNLER -->
-<section id="shop" class="services-section" style="background-color: #0f0f0f;">
-    <h2 class="section-title">ÖZEL PARÇA & ÜRÜN MAĞAZASI</h2>
-    <div class="services-grid">
-        <div class="service-card">
-            <h3>🔥 Custom Egzoz Kiti</h3>
-            <p>Motoruna tok ve gür bir ses katar, performans artışı sağlar.</p>
-            <p style="color: #d1b88a; font-weight: bold; margin-top: 10px;">Fiyat: $4,500</p>
-            <a href="#booking" class="btn-nav" style="display:inline-block; margin-top:15px;" onclick="selectProduct('Custom Egzoz Kiti ($4,500)')">SİPARİŞ VER</a>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead Man's Wrench Custom Bike Garage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVİGASYON -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Dead Man's Wrench Logo" class="logo-img">
+            <span class="brand-title">DEAD MAN'S WRENCH</span>
         </div>
-        <div class="service-card">
-            <h3>🧰 Krom Gidon Seti</h3>
-            <p>Chopper tarzı sürüş için özel el yapımı gidon tasarımı.</p>
-            <p style="color: #d1b88a; font-weight: bold; margin-top: 10px;">Fiyat: $3,000</p>
-            <a href="#booking" class="btn-nav" style="display:inline-block; margin-top:15px;" onclick="selectProduct('Krom Gidon Seti ($3,000)')">SİPARİŞ VER</a>
+        <nav>
+            <a href="#projects">Projelerimiz</a>
+            <a href="#services">Hizmetler & Mağaza</a>
+            <a href="#booking" class="btn-nav">Randevu / Sipariş</a>
+        </nav>
+    </header>
+
+    <!-- HERO BÖLÜMÜ -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <img src="logo.png" alt="Dead Man's Wrench Main Logo" class="hero-logo">
+            <h1>DEAD MAN'S WRENCH</h1>
+            <h2>CUSTOM BIKE GARAGE & REPAIR</h2>
+            <p>San Andreas'ın en sert makinelerine özel bakım, custom modifiye ve performans ayarları.</p>
+            <a href="#booking" class="btn-primary">SERVİS KAYDI OLUŞTUR</a>
         </div>
-        <div class="service-card">
-            <h3>🎨 Özel Patina Boya</h3>
-            <p>Garajımıza özel eskitme ve mat renk seçenekleri.</p>
-            <p style="color: #d1b88a; font-weight: bold; margin-top: 10px;">Fiyat: $6,000</p>
-            <a href="#booking" class="btn-nav" style="display:inline-block; margin-top:15px;" onclick="selectProduct('Özel Patina Boya ($6,000)')">SİPARİŞ VER</a>
+    </section>
+
+    <!-- PROJELERİMİZ (GALERİ) -->
+    <section id="projects" class="services-section">
+        <h2 class="section-title">PROJELERİMİZ & CUSTOM MOTORLAR</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80" alt="The Iron Reaper" class="project-img">
+                <div class="project-info">
+                    <h3>THE IRON REAPER</h3>
+                    <p class="project-desc">Western Nightblade altyapısı üzerine inşa edilen bu canavar, özel yüksek gidon, mat siyah fırın boya ve el yapımı egzoz sistemiyle donatıldı.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80" alt="Red Demon Chopper" class="project-img">
+                <div class="project-info">
+                    <h3>RED DEMON CHOPPER</h3>
+                    <p class="project-desc">Atölyemizde sıfırdan uzatılan custom şasi, alev desenli depoyla birleştirildi. V-Twin motorunda aşırı performans ayarlamaları yapıldı.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80" alt="Vintage Bobber" class="project-img">
+                <div class="project-info">
+                    <h3>COPPER HEAD BOBBER</h3>
+                    <p class="project-desc">Eski tarz tutkunları için bakır detaylar ve deri tekli koltuk ile tasarlanan retro-custom Bobber projemiz.</p>
+                </div>
+            </div>
+
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- HİZMETLER VE MAĞAZA -->
+    <section id="services" class="services-section" style="background-color: #161616;">
+        <h2 class="section-title">HİZMETLERİMİZ & MAĞAZA</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🧰 GENEL BAKIM & TAMİR</h3>
+                <p>Motor revizyonu, fren sistemleri, zincir/kayış değişimi ve periyodik yağ bakımları.</p>
+            </div>
+            <div class="service-card">
+                <h3>🔥 CUSTOM & CHOPPER DİZAYN</h3>
+                <p>Özel gidon, egzoz sistemleri, depo şekillendirme ve kişiye özel tasarım şasiler.</p>
+            </div>
+            <div class="service-card">
+                <h3>🛒 Custom Egzoz Kiti</h3>
+                <p>Motoruna tok ve gür bir ses katar, performans artışı sağlar.</p>
+                <p style="color: #d1b88a; font-weight: bold; margin-top: 10px;">Fiyat: $4,500</p>
+                <a href="#booking" class="btn-nav" style="display:inline-block; margin-top:15px;" onclick="selectProduct('Custom Egzoz Kiti ($4,500)')">SİPARİŞ VER</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RANDEVU VE İLETİŞİM FORMU -->
+    <section id="booking" class="booking-section">
+        <div class="form-container">
+            <h2>GARAN GARAN MOTORUNU GETİR</h2>
+            <p>Aşağıdaki formu doldurarak atölyemizden randevu alabilir veya ürün siparişi verebilirsin.</p>
+            
+            <form id="garageForm">
+                <div class="form-group">
+                    <label for="icName">Karakter Adı Soyadı (IC):</label>
+                    <input type="text" id="icName" required placeholder="Örn: Johnny Klebitz">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefon Numarası (IC):</label>
+                    <input type="text" id="phone" required placeholder="Örn: 555-0192">
+                </div>
+
+                <div class="form-group">
+                    <label for="bikeModel">Motosiklet Marka / Model:</label>
+                    <input type="text" id="bikeModel" required placeholder="Örn: Western Daemon / Chopper">
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceType">İşlem / Satın Alınacak Ürün:</label>
+                    <select id="serviceType" required>
+                        <option value="Periyodik Bakım / Arıza Randevusu">Periyodik Bakım / Arıza Randevusu</option>
+                        <option value="Custom Proje / Görsel Modifiye">Custom Proje / Görsel Modifiye</option>
+                        <option value="Custom Egzoz Kiti ($4,500)">🛒 Ürün Satın Al: Custom Egzoz Kiti ($4,500)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="details">Yapılacak İşlem Detayları & Notlar:</label>
+                    <textarea id="details" rows="4" placeholder="Motorunuzdaki sorun, istediğiniz custom detaylar veya sipariş notunuz..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">TALEBİ GÖNDER</button>
+                <div id="statusMessage" class="status-msg"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Dead Man's Wrench Custom Bike Garage — GTA World Roleplay</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
