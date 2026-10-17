@@ -9,6 +9,12 @@
 </head>
 <body>
 
+    <!-- ARKA PLAN MÜZİĞİ VE SES KONTROLÜ -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://ia801503.us.archive.org/15/items/GTAIVTheLostAndDamnedTheme/GTAIVTheLostAndDamnedTheme.mp3" type="audio/mpeg">
+    </audio>
+    <button id="musicToggle" class="music-btn">🔊 Müzik: Açık</button>
+
     <!-- NAVİGASYON -->
     <header>
         <div class="logo-container">
@@ -17,8 +23,8 @@
         </div>
         <nav>
             <a href="#projects">Projelerimiz</a>
-            <a href="#services">Hizmetler & Mağaza</a>
-            <a href="#booking" class="btn-nav">Randevu / Sipariş</a>
+            <a href="#services">Hizmetlerimiz</a>
+            <a href="#booking" class="btn-nav">Randevu / İşlem Tipi</a>
         </nav>
     </header>
 
@@ -38,85 +44,44 @@
     <section id="projects" class="services-section">
         <h2 class="section-title">PROJELERİMİZ & CUSTOM MOTORLAR</h2>
         <div class="projects-grid">
-            
-            <!-- Fotoğraf 1 -->
             <div class="project-card">
                 <img src="https://i.imgur.com/PBlc527.png" alt="Custom Bike 1" class="project-img">
-                <div class="project-info">
-                    <h3>CUSTOM BUILD #1</h3>
-                    <p class="project-desc">Atölyemizde özel olarak tasarlanan ve modifiye edilen custom motosiklet projemiz.</p>
-                </div>
+                <div class="project-info"><h3>CUSTOM BUILD #1</h3><p class="project-desc">Atölyemizde özel olarak tasarlanan projemiz.</p></div>
             </div>
-
-            <!-- Fotoğraf 2 -->
             <div class="project-card">
                 <img src="https://i.imgur.com/0dVVg9r.png" alt="Custom Bike 2" class="project-img">
-                <div class="project-info">
-                    <h3>CUSTOM BUILD #2</h3>
-                    <p class="project-desc">Gelişmiş performans ayarları ve özel gövde kaplamasıyla hazırlanan canavar.</p>
-                </div>
+                <div class="project-info"><h3>CUSTOM BUILD #2</h3><p class="project-desc">Gelişmiş performans ayarları ve gövde kaplaması.</p></div>
             </div>
-
-            <!-- Fotoğraf 3 -->
             <div class="project-card">
                 <img src="https://i.imgur.com/UQ1pFra.png" alt="Custom Bike 3" class="project-img">
-                <div class="project-info">
-                    <h3>CUSTOM BUILD #3</h3>
-                    <p class="project-desc">Sokakların ruhunu yansıtan özel şasi ve egzoz tasarımı.</p>
-                </div>
+                <div class="project-info"><h3>CUSTOM BUILD #3</h3><p class="project-desc">Sokakların ruhunu yansıtan özel şasi tasarımı.</p></div>
             </div>
-
-            <!-- Fotoğraf 4 -->
             <div class="project-card">
                 <img src="https://i.imgur.com/V7PvtQP.png" alt="Custom Bike 4" class="project-img">
-                <div class="project-info">
-                    <h3>CUSTOM BUILD #4</h3>
-                    <p class="project-desc">Chopper ve Bobber tarzının harmanlandığı özel detaylar.</p>
-                </div>
+                <div class="project-info"><h3>CUSTOM BUILD #4</h3><p class="project-desc">Chopper ve Bobber tarzının harmanlandığı detaylar.</p></div>
             </div>
-
-            <!-- Fotoğraf 5 -->
             <div class="project-card">
                 <img src="https://i.imgur.com/Lm1Xusf.png" alt="Custom Bike 5" class="project-img">
-                <div class="project-info">
-                    <h3>CUSTOM BUILD #5</h3>
-                    <p class="project-desc">Yüksek tork ve agresif sürüş pozisyonu için özel modifiye edilmiş model.</p>
-                </div>
+                <div class="project-info"><h3>CUSTOM BUILD #5</h3><p class="project-desc">Yüksek tork ve agresif sürüş pozisyonu modifiyesi.</p></div>
             </div>
-
-            <!-- Fotoğraf 6 -->
             <div class="project-card">
                 <img src="https://i.imgur.com/vdYpKVd.png" alt="Custom Bike 6" class="project-img">
-                <div class="project-info">
-                    <h3>CUSTOM BUILD #6</h3>
-                    <p class="project-desc">Atölyemizin imzasını taşıyan retro ve modern çizgilerin buluşması.</p>
-                </div>
+                <div class="project-info"><h3>CUSTOM BUILD #6</h3><p class="project-desc">Retro ve modern çizgilerin buluşması.</p></div>
             </div>
-
-            <!-- Fotoğraf 7 -->
             <div class="project-card">
                 <img src="https://i.imgur.com/HsGyZwq.png" alt="Custom Bike 7" class="project-img">
-                <div class="project-info">
-                    <h3>CUSTOM BUILD #7</h3>
-                    <p class="project-desc">Komple V-Twin motor revizyonu ve özel boya işçiliği.</p>
-                </div>
+                <div class="project-info"><h3>CUSTOM BUILD #7</h3><p class="project-desc">Komple V-Twin motor revizyonu.</p></div>
             </div>
-
-            <!-- Fotoğraf 8 -->
             <div class="project-card">
                 <img src="https://i.imgur.com/sFYqV0r.png" alt="Custom Bike 8" class="project-img">
-                <div class="project-info">
-                    <h3>CUSTOM BUILD #8</h3>
-                    <p class="project-desc">Dead Man's Wrench standartlarında hazırlanmış özel sergileme motorumuz.</p>
-                </div>
+                <div class="project-info"><h3>CUSTOM BUILD #8</h3><p class="project-desc">Dead Man's Wrench sergileme motorumuz.</p></div>
             </div>
-
         </div>
     </section>
 
-    <!-- HİZMETLER VE MAĞAZA -->
+    <!-- HİZMETLER -->
     <section id="services" class="services-section" style="background-color: #161616;">
-        <h2 class="section-title">HİZMETLERİMİZ & MAĞAZA</h2>
+        <h2 class="section-title">HİZMETLERİMİZ</h2>
         <div class="services-grid">
             <div class="service-card">
                 <h3>🧰 GENEL BAKIM & TAMİR</h3>
@@ -127,19 +92,17 @@
                 <p>Özel gidon, egzoz sistemleri, depo şekillendirme ve kişiye özel tasarım şasiler.</p>
             </div>
             <div class="service-card">
-                <h3>🛒 Custom Egzoz Kiti</h3>
-                <p>Motoruna tok ve gür bir ses katar, performans artışı sağlar.</p>
-                <p style="color: #d1b88a; font-weight: bold; margin-top: 10px;">Fiyat: $4,500</p>
-                <a href="#booking" class="btn-nav" style="display:inline-block; margin-top:15px;" onclick="selectProduct('Custom Egzoz Kiti ($4,500)')">SİPARİŞ VER</a>
+                <h3>⚡ PERFORMANS & GÜVENLİK</h3>
+                <p>Turbo yükleme, yazılım ayarları, hırsızlık koruma ve alarm sistemleri montajı.</p>
             </div>
         </div>
     </section>
 
-    <!-- RANDEVU VE İLETİŞİM FORMU -->
+    <!-- RANDEVU VE İŞLEM FORMU -->
     <section id="booking" class="booking-section">
         <div class="form-container">
             <h2>GARAN GARAN MOTORUNU GETİR</h2>
-            <p>Aşağıdaki formu doldurarak atölyemizden randevu alabilir veya ürün siparişi verebilirsin.</p>
+            <p>Yapılacak işlemleri ve parçaları işaretleyerek randevu talebinde bulunabilirsin.</p>
             
             <form id="garageForm">
                 <div class="form-group">
@@ -157,18 +120,37 @@
                     <input type="text" id="bikeModel" required placeholder="Örn: Western Daemon / Chopper">
                 </div>
 
+                <!-- ÇENTİKLİ İŞLEM / PARÇA SEÇİM ALANI -->
                 <div class="form-group">
-                    <label for="serviceType">İşlem / Satın Alınacak Ürün:</label>
-                    <select id="serviceType" required>
-                        <option value="Periyodik Bakım / Arıza Randevusu">Periyodik Bakım / Arıza Randevusu</option>
-                        <option value="Custom Proje / Görsel Modifiye">Custom Proje / Görsel Modifiye</option>
-                        <option value="Custom Egzoz Kiti ($4,500)">🛒 Ürün Satın Al: Custom Egzoz Kiti ($4,500)</option>
-                    </select>
+                    <label>Yapılacak İşlemler & Parçalar (İşaretleyin):</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Motor"> Motor</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Şanzıman"> Şanzıman</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Turbo"> Turbo</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Ön Tampon"> Ön Tampon</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Arka Tampon"> Arka Tampon</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Cam Filmi"> Cam Filmi</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Jant"> Jant</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Jant Boyası"> Jant Boyası</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Boya"> Boya</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="İkincil Boya"> İkincil Boya</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Spoyler"> Spoyler</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Egzoz"> Egzoz</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Ön Marşpiyel"> Ön Marşpiyel</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Tavan"> Tavan</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Şasi"> Şasi</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Tamir"> Tamir</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Muayene"> Muayene</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Subwoofer"> Subwoofer</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Hırsızlık Koruma"> Hırsızlık Koruma</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Koruma"> Koruma</label>
+                        <label class="checkbox-item"><input type="checkbox" name="parts" value="Alarm"> Alarm</label>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="details">Yapılacak İşlem Detayları & Notlar:</label>
-                    <textarea id="details" rows="4" placeholder="Motorunuzdaki sorun, istediğiniz custom detaylar veya sipariş notunuz..."></textarea>
+                    <label for="details">Yapılacak İşlem Detayları & Ek Notlar:</label>
+                    <textarea id="details" rows="4" placeholder="Ek olarak istediğiniz özel renk kodları veya notlarınız..."></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">TALEBİ GÖNDER</button>
