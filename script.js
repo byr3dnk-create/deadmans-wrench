@@ -1,58 +1,43 @@
-let player;
-let isPlaying = false;
-
-// YouTube API hazır olduğunda otomatik çalışır
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('youtubePlayer', {
-        height: '0',
-        width: '0',
-        videoId: '2Zb0nTZEuSU', // Lost MC Tema Müziği
-        playerVars: {
-            'autoplay': 1,
-            'controls': 0,
-            'loop': 1,
-            'playlist': '2Zb0nTZEuSU'
-        },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-}
-
-function onPlayerReady(event) {
-    event.target.setVolume(15); // Ses seviyesi kısık (%15)
-    event.target.playVideo();
-    isPlaying = true;
-}
-
+const audio = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicToggle');
 
-// Tarayıcıların "otomatik ses oynatma engeli"ni aşmak için sayfaya ilk dokunuşta sesi başlatır
-document.addEventListener('click', function autoPlayOnInteraction() {
-    if (player && player.playVideo && !isPlaying) {
-        player.playVideo();
-        isPlaying = true;
-        musicBtn.innerText = "🔊 Müzik: Açık";
-        musicBtn.style.backgroundColor = "#8b0000";
+audio.volume = 0.15; // Ses seviyesi kısık (%15)
+
+// Sayfa yüklendiğinde müziği başlatmayı dener
+window.addEventListener('DOMContentLoaded', () => {
+    let playPromise = audio.play();
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            musicBtn.innerText = "🔊 Müzik: Açık";
+            musicBtn.style.backgroundColor = "#8b0000";
+        }).catch(() => {
+            // Tarayıcı ilk anda engellerse, fare hareketi veya herhangi bir etkileşimde tetikler
+            const enableAudio = () => {
+                audio.play();
+                musicBtn.innerText = "🔊 Müzik: Açık";
+                musicBtn.style.backgroundColor = "#8b0000";
+                window.removeEventListener('mousemove', enableAudio);
+                window.removeEventListener('scroll', enableAudio);
+                window.removeEventListener('keydown', enableAudio);
+            };
+            window.addEventListener('mousemove', enableAudio);
+            window.addEventListener('scroll', enableAudio);
+            window.addEventListener('keydown', enableAudio);
+        });
     }
-    document.removeEventListener('click', autoPlayOnInteraction);
 });
 
-// Müziği durdurma / açma butonu
+// Sağ alttaki müziği açma / kapama butonu
 musicBtn.addEventListener('click', function(e) {
     e.stopPropagation();
-    if (!player) return;
-
-    if (isPlaying) {
-        player.pauseVideo();
-        isPlaying = false;
-        musicBtn.innerText = "🔇 Müzik: Kapalı";
-        musicBtn.style.backgroundColor = "#333";
-    } else {
-        player.playVideo();
-        isPlaying = true;
+    if (audio.paused) {
+        audio.play();
         musicBtn.innerText = "🔊 Müzik: Açık";
         musicBtn.style.backgroundColor = "#8b0000";
+    } else {
+        audio.pause();
+        musicBtn.innerText = "🔇 Müzik: Kapalı";
+        musicBtn.style.backgroundColor = "#333";
     }
 });
 
