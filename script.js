@@ -1,7 +1,7 @@
 document.getElementById('garageForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const webhookURL = "BURAYA_DISCORD_WEBHOOK_LINKINI_YAPIŞTIR"; // Discord Webhook URL'inizi yazın
+    const webhookURL = "https://discord.com/api/webhooks/1560806099118981240/xgnxVZc0KYQfetWAMhy9q7IlbEiqsD2D3y4Bs16Nx-_-DnuV-DuKOcvMakpBB8UYEKFl"; // Discord Webhook URL'inizi yazın
 
     const icName = document.getElementById('icName').value;
     const phone = document.getElementById('phone').value;
