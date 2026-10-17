@@ -1,3 +1,30 @@
+// ARKA PLAN MÜZİĞİ AYARLARI
+const music = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicToggle');
+
+music.volume = 0.15; // Kısık ses seviyesi (%15)
+
+// Kullanıcı sayfada bir yere tıkladığında müzik otomatik başlar (Tarayıcı kısıtlamasını aşmak için)
+document.addEventListener('click', function startMusicOnce() {
+    if (music.paused) {
+        music.play().catch(e => console.log("Müzik otomatik başlatılamadı:", e));
+    }
+    document.removeEventListener('click', startMusicOnce);
+});
+
+musicBtn.addEventListener('click', function() {
+    if (music.paused) {
+        music.play();
+        musicBtn.innerText = "🔊 Müzik: Açık";
+        musicBtn.style.backgroundColor = "#8b0000";
+    } else {
+        music.pause();
+        musicBtn.innerText = "🔇 Müzik: Kapalı";
+        musicBtn.style.backgroundColor = "#333";
+    }
+});
+
+// FORM VE DISCORD WEBHOOK GÖNDERİMİ
 document.getElementById('garageForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -6,10 +33,22 @@ document.getElementById('garageForm').addEventListener('submit', function(e) {
     const icName = document.getElementById('icName').value;
     const phone = document.getElementById('phone').value;
     const bikeModel = document.getElementById('bikeModel').value;
-    const serviceType = document.getElementById('serviceType').value;
     const details = document.getElementById('details').value;
 
+    // Seçilen parçaları/işlemleri alma
+    const selectedParts = [];
+    const checkboxes = document.querySelectorAll('input[name="parts"]:checked');
+    checkboxes.forEach((cb) => {
+        selectedParts.push(cb.value);
+    });
+
     const statusMsg = document.getElementById('statusMessage');
+
+    if (selectedParts.length === 0) {
+        statusMsg.style.color = "orange";
+        statusMsg.innerText = "Lütfen en az bir tane yapılacak işlem/parça seçin!";
+        return;
+    }
 
     statusMsg.style.color = "yellow";
     statusMsg.innerText = "Gönderiliyor...";
@@ -17,14 +56,14 @@ document.getElementById('garageForm').addEventListener('submit', function(e) {
     const discordPayload = {
         username: "Dead Man's Wrench Bot",
         embeds: [{
-            title: "🛠️ Yeni Tamir & Müşteri Talebi",
+            title: "🛠️ Yeni Tamir & Parça Montaj Talebi",
             color: 9109504,
             fields: [
                 { name: "👤 Müşteri (IC Adı)", value: icName || "Belirtilmedi", inline: true },
                 { name: "📞 Telefon", value: phone || "Belirtilmedi", inline: true },
                 { name: "🏍️ Motosiklet Model", value: bikeModel || "Belirtilmedi", inline: false },
-                { name: "🔧 Hizmet Türü / Ürün", value: serviceType || "Belirtilmedi", inline: false },
-                { name: "📝 Detaylar", value: details || "Detay belirtilmedi." }
+                { name: "🔧 Seçilen İşlemler & Parçalar", value: selectedParts.join(", "), inline: false },
+                { name: "📝 Ek Notlar / Detaylar", value: details || "Detay belirtilmedi." }
             ],
             footer: { text: "Dead Man's Wrench Custom Bike Garage" },
             timestamp: new Date().toISOString()
@@ -54,13 +93,3 @@ document.getElementById('garageForm').addEventListener('submit', function(e) {
         statusMsg.innerText = "Bağlantı hatası oluştu!";
     });
 });
-
-function selectProduct(productName) {
-    const selectBox = document.getElementById('serviceType');
-    for (let i = 0; i < selectBox.options.length; i++) {
-        if (selectBox.options[i].text.includes(productName) || selectBox.options[i].value.includes(productName)) {
-            selectBox.selectedIndex = i;
-            break;
-        }
-    }
-}
