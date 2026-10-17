@@ -9,8 +9,10 @@
 </head>
 <body>
 
-    <!-- GİZLİ YOUTUBE OYNATICI VE KONTROL BUTONU -->
-    <div id="youtubePlayer" style="display:none;"></div>
+    <!-- DOĞRUDAN MP3 SES OYNATICI VE KONTROL BUTONU -->
+    <audio id="bgMusic" loop autoplay preload="auto">
+        <source src="https://ia801503.us.archive.org/15/items/GTAIVTheLostAndDamnedTheme/GTAIVTheLostAndDamnedTheme.mp3" type="audio/mpeg">
+    </audio>
     <button id="musicToggle" class="music-btn">🔊 Müzik: Açık</button>
 
     <!-- NAVİGASYON -->
@@ -160,8 +162,6 @@
         <p>&copy; Dead Man's Wrench Custom Bike Garage — GTA World Roleplay</p>
     </footer>
 
-    <!-- YOUTUBE IFRAME API SCRIPT -->
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
 </html>
