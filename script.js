@@ -1,26 +1,56 @@
-// ARKA PLAN MÜZİĞİ AYARLARI
-const music = document.getElementById('bgMusic');
+let player;
+let isPlaying = false;
+
+// YouTube API hazır olduğunda çağrılan fonksiyon
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtubePlayer', {
+        height: '0',
+        width: '0',
+        videoId: '2Zb0nTZEuSU', // Verilen YouTube Videosu
+        playerVars: {
+            'autoplay': 0,
+            'controls': 0,
+            'loop': 1,
+            'playlist': '2Zb0nTZEuSU' // Döngü için şarttır
+        },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    event.target.setVolume(15); // Kısık ses seviyesi (%15)
+}
+
 const musicBtn = document.getElementById('musicToggle');
 
-music.volume = 0.15; // Kısık ses seviyesi (%15)
-
-// Kullanıcı sayfada bir yere tıkladığında müzik otomatik başlar (Tarayıcı kısıtlamasını aşmak için)
-document.addEventListener('click', function startMusicOnce() {
-    if (music.paused) {
-        music.play().catch(e => console.log("Müzik otomatik başlatılamadı:", e));
-    }
-    document.removeEventListener('click', startMusicOnce);
-});
-
-musicBtn.addEventListener('click', function() {
-    if (music.paused) {
-        music.play();
+// Sayfaya yapılan ilk tıklamada müziği otomatik başlatır (Tarayıcı engeline takılmamak için)
+document.addEventListener('click', function startMusicOnUserInteraction() {
+    if (player && player.playVideo && !isPlaying) {
+        player.playVideo();
+        isPlaying = true;
         musicBtn.innerText = "🔊 Müzik: Açık";
         musicBtn.style.backgroundColor = "#8b0000";
-    } else {
-        music.pause();
+    }
+    document.removeEventListener('click', startMusicOnUserInteraction);
+});
+
+// Sağ alttaki müzik açma / kapama butonu
+musicBtn.addEventListener('click', function(e) {
+    e.stopPropagation(); // Tıklama olayının yukarı taşınmasını engeller
+    if (!player) return;
+
+    if (isPlaying) {
+        player.pauseVideo();
+        isPlaying = false;
         musicBtn.innerText = "🔇 Müzik: Kapalı";
         musicBtn.style.backgroundColor = "#333";
+    } else {
+        player.playVideo();
+        isPlaying = true;
+        musicBtn.innerText = "🔊 Müzik: Açık";
+        musicBtn.style.backgroundColor = "#8b0000";
     }
 });
 
@@ -35,7 +65,6 @@ document.getElementById('garageForm').addEventListener('submit', function(e) {
     const bikeModel = document.getElementById('bikeModel').value;
     const details = document.getElementById('details').value;
 
-    // Seçilen parçaları/işlemleri alma
     const selectedParts = [];
     const checkboxes = document.querySelectorAll('input[name="parts"]:checked');
     checkboxes.forEach((cb) => {
