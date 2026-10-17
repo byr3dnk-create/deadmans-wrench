@@ -9,11 +9,9 @@
 </head>
 <body>
 
-    <!-- ARKA PLAN MÜZİĞİ VE SES KONTROLÜ -->
-    <audio id="bgMusic" loop preload="auto">
-        <source src="https://ia801503.us.archive.org/15/items/GTAIVTheLostAndDamnedTheme/GTAIVTheLostAndDamnedTheme.mp3" type="audio/mpeg">
-    </audio>
-    <button id="musicToggle" class="music-btn">🔊 Müzik: Açık</button>
+    <!-- GİZLİ YOUTUBE OYNATICI VE KONTROL BUTONU -->
+    <div id="youtubePlayer" style="display:none;"></div>
+    <button id="musicToggle" class="music-btn">🎵 Müziği Başlat</button>
 
     <!-- NAVİGASYON -->
     <header>
@@ -120,7 +118,6 @@
                     <input type="text" id="bikeModel" required placeholder="Örn: Western Daemon / Chopper">
                 </div>
 
-                <!-- ÇENTİKLİ İŞLEM / PARÇA SEÇİM ALANI -->
                 <div class="form-group">
                     <label>Yapılacak İşlemler & Parçalar (İşaretleyin):</label>
                     <div class="checkbox-grid">
@@ -163,6 +160,8 @@
         <p>&copy; Dead Man's Wrench Custom Bike Garage — GTA World Roleplay</p>
     </footer>
 
+    <!-- YOUTUBE IFRAME API SCRIPT -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
 </html>
