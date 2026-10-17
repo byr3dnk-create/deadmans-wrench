@@ -1,43 +1,68 @@
-const audio = document.getElementById('bgMusic');
+let player;
+let isPlaying = false;
+
+// YouTube API Otomatik Yükleme
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtubePlayer', {
+        height: '1',
+        width: '1',
+        videoId: '2Zb0nTZEuSU', // Lost MC Tema Müziği
+        playerVars: {
+            'autoplay': 1,
+            'controls': 0,
+            'loop': 1,
+            'playlist': '2Zb0nTZEuSU'
+        },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    event.target.setVolume(15); // Ses seviyesi kısık (%15)
+    
+    // Otomatik oynatmayı başlatmayı dener
+    let playAttempt = event.target.playVideo();
+    isPlaying = true;
+
+    // Tarayıcı otomatik sesi kısıtlarsa, kullanıcının ilk hareketinde ses açılır
+    const enableAudioOnInteraction = () => {
+        if (player && player.playVideo) {
+            player.playVideo();
+            isPlaying = true;
+            document.getElementById('musicToggle').innerText = "🔊 Müzik: Açık";
+            document.getElementById('musicToggle').style.backgroundColor = "#8b0000";
+        }
+        window.removeEventListener('mousemove', enableAudioOnInteraction);
+        window.removeEventListener('scroll', enableAudioOnInteraction);
+        window.removeEventListener('click', enableAudioOnInteraction);
+        window.removeEventListener('touchstart', enableAudioOnInteraction);
+    };
+
+    window.addEventListener('mousemove', enableAudioOnInteraction);
+    window.addEventListener('scroll', enableAudioOnInteraction);
+    window.addEventListener('click', enableAudioOnInteraction);
+    window.addEventListener('touchstart', enableAudioOnInteraction);
+}
+
 const musicBtn = document.getElementById('musicToggle');
 
-audio.volume = 0.15; // Ses seviyesi kısık (%15)
-
-// Sayfa yüklendiğinde müziği başlatmayı dener
-window.addEventListener('DOMContentLoaded', () => {
-    let playPromise = audio.play();
-    if (playPromise !== undefined) {
-        playPromise.then(() => {
-            musicBtn.innerText = "🔊 Müzik: Açık";
-            musicBtn.style.backgroundColor = "#8b0000";
-        }).catch(() => {
-            // Tarayıcı ilk anda engellerse, fare hareketi veya herhangi bir etkileşimde tetikler
-            const enableAudio = () => {
-                audio.play();
-                musicBtn.innerText = "🔊 Müzik: Açık";
-                musicBtn.style.backgroundColor = "#8b0000";
-                window.removeEventListener('mousemove', enableAudio);
-                window.removeEventListener('scroll', enableAudio);
-                window.removeEventListener('keydown', enableAudio);
-            };
-            window.addEventListener('mousemove', enableAudio);
-            window.addEventListener('scroll', enableAudio);
-            window.addEventListener('keydown', enableAudio);
-        });
-    }
-});
-
-// Sağ alttaki müziği açma / kapama butonu
+// Müziği manuel açma / kapama butonu
 musicBtn.addEventListener('click', function(e) {
     e.stopPropagation();
-    if (audio.paused) {
-        audio.play();
-        musicBtn.innerText = "🔊 Müzik: Açık";
-        musicBtn.style.backgroundColor = "#8b0000";
-    } else {
-        audio.pause();
+    if (!player) return;
+
+    if (isPlaying) {
+        player.pauseVideo();
+        isPlaying = false;
         musicBtn.innerText = "🔇 Müzik: Kapalı";
         musicBtn.style.backgroundColor = "#333";
+    } else {
+        player.playVideo();
+        isPlaying = true;
+        musicBtn.innerText = "🔊 Müzik: Açık";
+        musicBtn.style.backgroundColor = "#8b0000";
     }
 });
 
