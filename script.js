@@ -1,17 +1,17 @@
 let player;
 let isPlaying = false;
 
-// YouTube API hazır olduğunda çağrılan fonksiyon
+// YouTube API hazır olduğunda otomatik çalışır
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('youtubePlayer', {
         height: '0',
         width: '0',
-        videoId: '2Zb0nTZEuSU', // Verilen YouTube Videosu
+        videoId: '2Zb0nTZEuSU', // Lost MC Tema Müziği
         playerVars: {
-            'autoplay': 0,
+            'autoplay': 1,
             'controls': 0,
             'loop': 1,
-            'playlist': '2Zb0nTZEuSU' // Döngü için şarttır
+            'playlist': '2Zb0nTZEuSU'
         },
         events: {
             'onReady': onPlayerReady
@@ -20,25 +20,27 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-    event.target.setVolume(15); // Kısık ses seviyesi (%15)
+    event.target.setVolume(15); // Ses seviyesi kısık (%15)
+    event.target.playVideo();
+    isPlaying = true;
 }
 
 const musicBtn = document.getElementById('musicToggle');
 
-// Sayfaya yapılan ilk tıklamada müziği otomatik başlatır (Tarayıcı engeline takılmamak için)
-document.addEventListener('click', function startMusicOnUserInteraction() {
+// Tarayıcıların "otomatik ses oynatma engeli"ni aşmak için sayfaya ilk dokunuşta sesi başlatır
+document.addEventListener('click', function autoPlayOnInteraction() {
     if (player && player.playVideo && !isPlaying) {
         player.playVideo();
         isPlaying = true;
         musicBtn.innerText = "🔊 Müzik: Açık";
         musicBtn.style.backgroundColor = "#8b0000";
     }
-    document.removeEventListener('click', startMusicOnUserInteraction);
+    document.removeEventListener('click', autoPlayOnInteraction);
 });
 
-// Sağ alttaki müzik açma / kapama butonu
+// Müziği durdurma / açma butonu
 musicBtn.addEventListener('click', function(e) {
-    e.stopPropagation(); // Tıklama olayının yukarı taşınmasını engeller
+    e.stopPropagation();
     if (!player) return;
 
     if (isPlaying) {
